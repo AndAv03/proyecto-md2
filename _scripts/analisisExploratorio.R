@@ -12,8 +12,8 @@ library(ggplot2)   # Para visualización
 # 2. Importar el dataset
 # ----------------------------
 # Usaremos el .csv con separador ";"
-ruta <- "_data/ECE_2T2024.csv"
-datos <- read_csv2(ruta)  # read_csv2 reconoce el separador ";"
+# ruta <- "_data/ECE_2T2024.csv"
+# datos <- read_csv2(ruta)  # read_csv2 reconoce el separador ";"
 load("_data/ECE_2T2024.RData")
 # ----------------------------
 # 3. Limpieza inicial
