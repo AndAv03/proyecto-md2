@@ -49,15 +49,13 @@ Estas reglas ayudan a:
 - Identificar patrones ocultos en la estructura laboral.
 - Caracterizar grupos vulnerables o concentrados en sectores informales.
 - Entender los vínculos entre educación, edad y empleo.
-- ## 📂 Estructura del Proyecto
-
+## 📂 Estructura del Proyecto
 📁 _data/
 └── ECE_2T2024.RData # Archivo principal de datos de la encuesta
 📁 scripts/
 ├── 01_exploratorio.R # Análisis exploratorio de variables sociodemográficas
 └── 02_reglas_asociacion.R # Generación de reglas de asociación sobre ocupación
 📄 README.md # Documento explicativo del proyecto
-- 
 ## 🔧 Requisitos
 
 - R >= 4.2.0  
