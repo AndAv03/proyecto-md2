@@ -94,4 +94,36 @@ plot(reglas_rural, method = "graph", engine = "htmlwidget")
 plot(reglas_mujer_primaria, method = "graph", engine = "htmlwidget")
 plot(reglas_no_remun, method = "graph", engine = "htmlwidget")
 
+# Mejor visualizacion de las reglas
+# Convertir reglas a data frame
+reglas_df <- as(sort(regla1, by = "lift")[1:10], "data.frame")
+
+# Separar LHS y RHS como texto
+reglas_df$rule <- paste(labels(lhs(sort(regla1, by = "lift")[1:10])),
+                        "→",
+                        labels(rhs(sort(regla1, by = "lift")[1:10])))
+
+# Reorganizar columnas
+reglas_limpias <- reglas_df %>%
+  select(rule, support, confidence, lift) %>%
+  mutate(across(c(support, confidence, lift), ~ round(.x, 3)))
+
+# Ver en consola (tabla limpia)
+# Convertir reglas a data frame
+regla1_df <- as(sort(regla1, by = "lift")[1:10], "data.frame")
+
+# Separar LHS y RHS como texto
+regla1_df$rule <- paste(labels(lhs(sort(regla1, by = "lift")[1:10])),
+                        "→",
+                        labels(rhs(sort(regla1, by = "lift")[1:10])))
+
+# Reorganizar columnas
+regla1_df_limpias <- regla1_df %>%
+  select(rule, support, confidence, lift) %>%
+  mutate(across(c(support, confidence, lift), ~ round(.x, 3)))
+
+# Ver en consola (tabla limpia)
+View(regla1_df_limpias)
+
+
 
