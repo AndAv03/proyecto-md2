@@ -98,5 +98,9 @@ ggplot(datos_sub, aes(x = edad)) +
   labs(title = "Distribución de edad de los ocupados", x = "Edad", y = "Frecuencia") +
   theme_minimal()
 
+# Para el Rmd
+#library(knitr)
+#kable(reglas_limpias, caption = "Reglas de Asociación con Mayor Lift")
+
 
 
