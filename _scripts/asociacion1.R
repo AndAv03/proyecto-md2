@@ -43,47 +43,40 @@ regla1 <- apriori(
 )
 
 
-# Regla 2. Perfiles asociados a tipos específicos de ocupación
-reglas_cp <- apriori(
-  data = trans,
-  parameter = list(supp = 0.01, conf = 0.6, minlen = 2),
-  appearance = list(rhs = "s2_18=Cuenta propia", default = "lhs"),
-  control = list(verbose = FALSE)
-)
 
 # Regla 3. Factores comunes entre quienes trabajan en áreas rurales
 reglas_rural <- apriori(
   data = trans,
-  parameter = list(supp = 0.01, conf = 0.6),
+  parameter = list(supp = 0.01, conf = 0.5),
   appearance = list(rhs = "area=Rural", default = "lhs"),
   control = list(verbose = FALSE)
 )
 
-# Regla 4. Revertir el análisis: qué factores se asocian con un determinado grupo (ej. mujeres con primaria)
-reglas_mujer_primaria <- apriori(
-  data = trans,
-  parameter = list(supp = 0.005, conf = 0.5),
-  appearance = list(rhs = c("sexo=Mujer", "niv_ed_g=Primaria"), default = "lhs"),
-  control = list(verbose = FALSE)
-)
 
 # Regla 5. Ver qué perfiles tienen mayor probabilidad de estar en el grupo “Familiar no remunerado”
 reglas_no_remun <- apriori(
   data = trans,
-  parameter = list(supp = 0.005, conf = 0.4),
+  parameter = list(supp = 0.01, conf = 0.5),
   appearance = list(rhs = "s2_18=Familiar no remunerado", default = "lhs"),
   control = list(verbose = FALSE)
 )
 
+reglas_mejoradas <- apriori(
+  trans,
+  parameter = list(supp = 0.01, conf = 0.5, minlen = 2, maxlen = 5),
+  appearance = list(rhs = grep("^s2_18=", itemLabels(trans), value = TRUE), default = "lhs")
+)
+
+
+inspect(sort(reglas_mejoradas, by="lift")[1:10])
+inspect(sort(reglas_fuerte, by="lift")[1:10])
 # ----------------------------
 # 5. Inspeccionar y visualizar reglas
 # ----------------------------
 # Mostrar las 10 reglas con mayor lift
 inspect(sort(regla1, by = "lift")[1:10])
 inspect(sort(reglas_no_remun, by = "lift")[1:10])
-inspect(sort(reglas_cp, by = "lift")[1:10])
 inspect(sort(reglas_rural, by = "lift")[1:5])
-inspect(sort(reglas_mujer_primaria, by = "lift")[1:10])
 inspect(sort(reglas_no_remun, by = "lift")[1:10])
 
 # Graficar red de reglas

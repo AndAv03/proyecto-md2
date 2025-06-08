@@ -32,7 +32,7 @@ datos_ocupados <- datos %>%
 # 5. Seleccionar y transformar variables clave
 # ----------------------------
 datos_sub <- datos_ocupados %>%
-  select(s1_02, s1_03a, area, niv_ed, s2_18) %>%
+  select(s1_02, s1_03a, area, niv_ed, s2_18,s2_23) %>%
   mutate(
     sexo = factor(s1_02, levels = c(1, 2), labels = c("Hombre", "Mujer")),
     area = factor(area, levels = c(1, 2), labels = c("Urbana", "Rural")),
@@ -47,7 +47,9 @@ datos_sub <- datos_ocupados %>%
       "Aprendiz sin remuneración",
       "Empleado/a del hogar"
     )),
-    edad = s1_03a
+    edad = s1_03a,
+    nit = factor(s2_23, levels = 1:4,
+                 labels = c("Sí", "Sí", "No", "No sabe"))
   )
 
 # ----------------------------
