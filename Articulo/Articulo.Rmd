@@ -46,7 +46,7 @@ La estructura del artículo es la siguiente: en primer lugar, se presentan los o
 
 ## Objetivo general
 
-Identificar perfiles sociodemográficos asociados al empleo informal en Bolivia mediante el análisis de reglas de asociación aplicadas a datos de la Encuesta Continua de Empleo (ECE) del segundo trimestre de 2024.
+Identificar perfiles sociodemográficos asociados las áreas de ocupación en Bolivia mediante el análisis de reglas de asociación aplicadas a datos de la Encuesta Continua de Empleo (ECE) del segundo trimestre de 2024.
 
 ## Objetivos específicos
 
