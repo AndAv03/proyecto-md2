@@ -51,7 +51,6 @@ datos_sub <- datos_ocupados %>%
     nit = factor(s2_23, levels = 1:4,
                  labels = c("Sí", "Sí", "No", "No sabe"))
   )
-
 # ----------------------------
 # 6. Análisis exploratorio
 # ----------------------------
